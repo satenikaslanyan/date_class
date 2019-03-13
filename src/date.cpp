@@ -2,7 +2,7 @@
 
 Date::Date()
 {
-	month = 1;
+    month = 1;
     day = 1;
     year = 2000;
 }
@@ -14,7 +14,7 @@ Date::Date(int Day, int Month, int Year)
 	year = Year;
 }
 
-void Date::set_day(int day) 
+void Date::set_day(int day)
 {
     bool fl = false;
     do {
@@ -29,7 +29,7 @@ void Date::set_day(int day)
     this->day = day;
 }
 
-void Date::set_month(int month) 
+void Date::set_month(int month)
 {
     bool fl = false;
     do {
@@ -44,7 +44,7 @@ void Date::set_month(int month)
     this->month = month;
 }
 
-void Date::set_year(int year) 
+void Date::set_year(int year)
 {
     bool fl = false;
     do {
@@ -61,22 +61,23 @@ void Date::set_year(int year)
 
 void Date::show_date1()
 {
-	std::cout << day << "-" << month << "-" << year << std::endl;
+	std::cout << day << "/" << month << "/" << year << std::endl;
 }
 
 void Date::show_date2()
 {
-	std::string month_name[] = { "January", "February", "March",
+	std::string month_name[] = {"January", "February", "March",
 		"April", "May", "June", "July",
 		"August", "September", "October",
 		"November", "December" };
 	std::cout << day << "  " <<  month_name[month - 1] << "  " << year << std::endl;
 }
 
-void Date::compare(Date d1){
-    if (d1.day == this->day && d1.month == this->month && d1.year == this->year) {
+void Date::compare(Date d1) {
+    if (d1.day == day && d1.month == month && d1.year == year) {
         std::cout << "\nTwo dates are equal" << std::endl;
-    } else if ((d1.year < this->year) || (d1.year == this->year && d1.month < this->month) || (d1.year == this->year && d1.month == this->month && d1.day < this->day)) {
+    } else if ((d1.year < year) || (d1.year == year && d1.month < month) ||
+         (d1.year == year && d1.month == month && d1.day < day)) {
         std::cout << "\nFirst date is earlier than second date" << std::endl;
     } else {
         std::cout << "\nSecond date is earlier than first date" << std::endl;
