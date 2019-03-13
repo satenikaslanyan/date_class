@@ -48,10 +48,10 @@ void Date::set_year(int year)
 {
     bool fl = false;
     do {
-	    std::cout << "Please enter a year (between 1950 - 2020): ";
+	std::cout << "Please enter a year (between 0 - 2200): ";
         fl = false;
         std::cin >> year;
-        if ((year < 1950) || (year > 2020)) {
+        if ((year < 0) || (year > 2200)) {
             std::cout << "Error, invalid year." << std::endl;
             fl = true;
         }
@@ -82,3 +82,5 @@ void Date::compare(Date d1){
         std::cout << "\nSecond date is earlier than first date" << std::endl;
     }
 }
+
+
