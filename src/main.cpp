@@ -5,13 +5,13 @@ int main()
     int month = 0;
     int day = 0;
     int year = 0;
-    Date d(day, month, year);
+    Date d;
     d.set_day(day);
     d.set_month(month);
     d.set_year(year);
     std::cout << "\nFirst date is: ";
     d.show_date1();
-    Date d1(day, month, year);
+    Date d1;
     d1.set_day(day);
     d1.set_month(month);
     d1.set_year(year);

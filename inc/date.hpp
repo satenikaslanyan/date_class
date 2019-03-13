@@ -1,4 +1,9 @@
 #include <iostream>
+#include <sstream>
+
+void is_number(std::string& s, bool& fl, int i);
+void check_input(std::string& s, bool& fl);
+int get_int(const int& a);
 
 class Date
 {

@@ -1,5 +1,53 @@
 #include "date.hpp"
 
+void is_number(std::string& s, bool& fl, int i)
+{
+     for (; i < s.size(); ++i) {
+         if(s[i] < '0' || s[i] > '9') {
+             std::cout << "Error, invalid input" << std::endl;
+             fl = true;
+             break;
+         }
+     }
+}
+
+//This function is for checking input
+void check_input(std::string& s, bool& fl)
+{
+    if (s.size() == 0) {
+        std::cout << "Error, invalid input" << std::endl;
+        fl = true;
+    } else if (s[0] == '-') {
+        is_number(s, fl, 1);
+    } else {
+        is_number(s, fl, 0);
+    }
+}
+
+//This function is for input
+int get_int(const int& a)
+{
+    bool fl = false;
+    int result = 0;
+    std::string s("");
+    do {
+        if (0 == a)  {
+            std::cout << "\nPlease enter a day (between 1 - 31): ";
+        } else if (1 == a) {
+            std::cout << "\nPlease enter a month (between 1 - 12): ";
+        } else if (2 == a) {
+	         std::cout << "Please enter a year (between 0 - 2200): ";
+        }
+        getline(std::cin, s);
+        fl = false;
+        check_input(s, fl);
+    } while(fl);
+    std::stringstream str_int(s);
+    str_int >> result;
+    return result;
+}
+
+
 Date::Date()
 {
     month = 1;
@@ -18,9 +66,8 @@ void Date::set_day(int day)
 {
     bool fl = false;
     do {
-	    std::cout << "\nPlease enter a day (between 1 - 31): ";
         fl = false;
-        std::cin >> day;
+        day = get_int(0);
         if ((day <= 0) || (day >= 32)) {
             std::cout << "Error, invalid day." << std::endl;
             fl = true;
@@ -33,9 +80,8 @@ void Date::set_month(int month)
 {
     bool fl = false;
     do {
-        std::cout << "Please enter a month (between 1 - 12): ";
         fl = false;
-        std::cin >> month;
+        month = get_int(1);
         if ((month <= 0) || (month >= 13)) {
             std::cout << "Error, invalid month." << std::endl;
             fl = true;
@@ -48,9 +94,8 @@ void Date::set_year(int year)
 {
     bool fl = false;
     do {
-	std::cout << "Please enter a year (between 0 - 2200): ";
         fl = false;
-        std::cin >> year;
+        year = get_int(2);
         if ((year < 0) || (year > 2200)) {
             std::cout << "Error, invalid year." << std::endl;
             fl = true;
